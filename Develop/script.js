@@ -1,31 +1,36 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var value = [];
-var characters
+var characters = "";
 var password = "";
 
-var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9",];
-var special = ["!", "@", "#", "$", "%", "^", "&", "*", "+", "_", "-"];
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowercase = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "0123456789";
+var special = "!@#$%^&*+_-~";
 
 function generatePassword() {
   console.log("button clicked");
 
 // 1. prompt user for password criteria
-  value = prompt("How many characters do you want in your password?(choose from 8 to 128)");
+  var integer = prompt("How many characters do you want in your password?(choose from 8 to 128)");
 
-  if(value < 8 || value > 128) {
+  if(integer === null) {
     alert("Invalid input, try again.")
     return;
   }
 
-  var upperCase = confirm("Do you want to use uppercase letters in your password?");
-  if(upperCase) characters += uppercase;
+  var length = Number(integer)
+  if (typeof length !== "number" || length < 8 || length > 128) {
+    alert("Invalid input, try again.")
+    return generatePassword();
+  }
 
-  var lowerCase = confirm("Do you want to use lowercase letters in your password?");
-  if(lowerCase) characters += lowercase;
+  var addUppercase = confirm("Do you want to use uppercase letters in your password?");
+  if(addUppercase) characters += uppercase;
+
+  var addLowercase = confirm("Do you want to use lowercase letters in your password?");
+  if(addLowercase) characters += lowercase;
 
   var addNumbers = confirm("Do you want to use numbers in your password?");
   if(addNumbers) characters += numbers;
@@ -36,8 +41,14 @@ function generatePassword() {
 // a. password length 8-128
 // b. uppercase, lowercase, numbers, special characters
 // 2. validate the input
+  if(characters === "") {
+    alert("Please select a minimum of one charcter type.")
+    return;
+  }
 // 3. generate password based on criteria
-  
+for (let i = 0; i < length; i++) {
+  password += characters[Math.floor(Math.random() * characters.length)];
+}
 // 4. display password on the page
   return password;
 }
