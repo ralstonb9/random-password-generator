@@ -22,7 +22,17 @@ function generatePassword() {
   }
 
   var upperCase = confirm("Do you want to use uppercase letters in your password?");
-  if(upperCase) characters + uppercase;
+  if(upperCase) characters += uppercase;
+
+  var lowerCase = confirm("Do you want to use lowercase letters in your password?");
+  if(lowerCase) characters += lowercase;
+
+  var addNumbers = confirm("Do you want to use numbers in your password?");
+  if(addNumbers) characters += numbers;
+
+  var addSpecial = confirm("Do you want to use special characters in your password?");
+  if(addSpecial) characters += special;
+
 // a. password length 8-128
 // b. uppercase, lowercase, numbers, special characters
 // 2. validate the input
