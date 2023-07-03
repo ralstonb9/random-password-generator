@@ -4,10 +4,10 @@ var generateBtn = document.querySelector("#generate");
 var characters = "";
 var password = "";
 
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowercase = "abcdefghijklmnopqrstuvwxyz";
-var numbers = "0123456789";
-var special = "!@#$%^&*+_-~";
+var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var special = ["!", "@", "#", "$", "%", "^", "&", "*", "+", "_", "-", "~"];
 
 function generatePassword() {
   console.log("button clicked");
@@ -26,24 +26,25 @@ function generatePassword() {
     return generatePassword();
   }
 
-  var addUppercase = confirm("Do you want to use uppercase letters in your password?");
-  if(addUppercase) characters += uppercase;
+  if(confirm("Do you want to use uppercase letters in your password?")) {
+    characters = characters.concat(uppercase)
+  }
 
-  var addLowercase = confirm("Do you want to use lowercase letters in your password?");
-  if(addLowercase) characters += lowercase;
+  if(confirm("Do you want to use lowercase letters in your password?")) {
+    characters = characters.concat(lowercase)
+  }
 
-  var addNumbers = confirm("Do you want to use numbers in your password?");
-  if(addNumbers) characters += numbers;
+  if(confirm("Do you want to use numbers in your password?")) {
+    characters = characters.concat(numbers)
+  }
 
-  var addSpecial = confirm("Do you want to use special characters in your password?");
-  if(addSpecial) characters += special;
+  if(confirm("Do you want to use special characters in your password?")) {
+    characters = characters.concat(special)
+  }
 
-// a. password length 8-128
-// b. uppercase, lowercase, numbers, special characters
-// 2. validate the input
   if(characters === "") {
     alert("Please select a minimum of one charcter type.")
-    return;
+    return "Try again";
   }
 // 3. generate password based on criteria
 for (let i = 0; i < length; i++) {
