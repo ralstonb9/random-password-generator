@@ -12,7 +12,7 @@ var special = ["!", "@", "#", "$", "%", "^", "&", "*", "+", "_", "-", "~"];
 function generatePassword() {
   console.log("button clicked");
 
-// 1. prompt user for password criteria
+    // 1. prompt user for password criteria
   var integer = prompt("How many characters do you want in your password?(choose from 8 to 128)");
 
   if(integer === null) {
@@ -25,32 +25,32 @@ function generatePassword() {
     alert("Invalid input, try again.")
     return generatePassword();
   }
-
+  // 2. uppercase, lowercase, numbers, & special character selections
   if(confirm("Do you want to use uppercase letters in your password?")) {
-    characters = characters.concat(uppercase)
+    characters = characters.concat(uppercase);
   }
 
   if(confirm("Do you want to use lowercase letters in your password?")) {
-    characters = characters.concat(lowercase)
+    characters = characters.concat(lowercase);
   }
 
   if(confirm("Do you want to use numbers in your password?")) {
-    characters = characters.concat(numbers)
+    characters = characters.concat(numbers);
   }
 
   if(confirm("Do you want to use special characters in your password?")) {
-    characters = characters.concat(special)
+    characters = characters.concat(special);
   }
 
   if(characters === "") {
     alert("Please select a minimum of one charcter type.")
     return "Try again";
   }
-// 3. generate password based on criteria
-for (let i = 0; i < length; i++) {
-  password += characters[Math.floor(Math.random() * characters.length)];
-}
-// 4. display password on the page
+  // 3. generate password based on criteria
+  for (let i = 0; i < length; i++) {
+    password += characters[Math.floor(Math.random() * characters.length)];
+  }
+  // 4. display password on the page
   return password;
 }
 
