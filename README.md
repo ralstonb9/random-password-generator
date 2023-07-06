@@ -6,7 +6,10 @@ In this weeks module the task was to create a random password generator through 
 ## Project Link
 
 
+
 ## Screenshot
 
+![Alt text](./Develop/assets/images/password-generator.png)
 
 ## Usage
+This web page can be used to create random passwords for online accounts, which would be a more secure option than using a man made password. It can also be used to see how alerts, prompts, and confirms can be implemented in JavaScript as well as for loops, and if statements.
