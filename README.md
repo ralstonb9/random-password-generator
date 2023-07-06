@@ -5,7 +5,7 @@ In this weeks module the task was to create a random password generator through 
 
 ## Project Link
 
-
+https://ralstonb9.github.io/random-password-generator/
 
 ## Screenshot
 
